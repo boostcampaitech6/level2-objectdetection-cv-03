@@ -1,0 +1,17 @@
+
+train: data/recycle_det/train_56_0.txt  # train images (relative to 'path') 128 images
+val: data/recycle_det/valid_56_0.txt  # val images (relative to 'path') 128 images
+test:  # test images (optional)
+
+# Classes
+names:
+  0: General trash
+  1: Paper
+  2: Paper pack
+  3: Metal
+  4: Glass
+  5: Plastic
+  6: Styrofoam
+  7: Plastic bag
+  8: Battery
+  9: Clothing
