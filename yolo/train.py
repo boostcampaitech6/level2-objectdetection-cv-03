@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import argparse
 
 def main(opt):
-    model = YOLO()
+    model = YOLO(opt.model)
     model.train(cfg='./custom.yaml', **vars(opt))
 
 def parse_opt():
