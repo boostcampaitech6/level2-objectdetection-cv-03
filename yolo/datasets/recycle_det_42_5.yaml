@@ -1,0 +1,15 @@
+train: /data/ephemeral/home/dataset/yolo/split/train_42_fold_5.txt 
+val: /data/ephemeral/home/dataset/yolo/split/val_42_fold_5.txt 
+
+nc: 10
+names:
+  0: General trash
+  1: Paper
+  2: Paper pack
+  3: Metal
+  4: Glass
+  5: Plastic
+  6: Styrofoam
+  7: Plastic bag
+  8: Battery
+  9: Clothing
