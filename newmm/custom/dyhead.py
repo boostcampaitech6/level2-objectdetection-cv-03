@@ -1,4 +1,4 @@
-_base_ = './configs/dino/dino-5scale_swin-l_8xb2-12e_coco.py'
+_base_ = '../configs/dyhead/atss_swin-l-p4-w12_fpn_dyhead_ms-2x_coco.py'
 
 model = dict(bbox_head=dict(num_classes=10))
 
@@ -13,5 +13,4 @@ vis_backends = [
 visualizer = dict(type='DetLocalVisualizer',vis_backends=vis_backends,name='visualizer')
 
 
-default_hooks = dict(checkpoint=dict(type='CheckpointHook',interval=1,save_best='auto',max_keep_ckpts=3))
-custom_hooks = [dict(type='SubmissionHook')]
+default_hooks = dict(checkpoint=dict(type='CheckpointHook',interval=1,save_best='auto',max_keep_ckpts=2))
