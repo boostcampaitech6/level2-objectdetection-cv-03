@@ -12,6 +12,7 @@ vis_backends = [
 ]
 visualizer = dict(type='DetLocalVisualizer',vis_backends=vis_backends,name='visualizer')
 
+test_cfg = dict(rcnn=dict(score_thr=0.25))
 
 default_hooks = dict(checkpoint=dict(type='CheckpointHook',interval=1,save_best='auto',max_keep_ckpts=3))
 custom_hooks = [dict(type='SubmissionHook')]
