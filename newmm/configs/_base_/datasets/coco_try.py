@@ -46,7 +46,7 @@ train_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file='split/train_42_fold_4.json',
+        ann_file='split/train_42_fold_1.json',
         data_prefix=dict(img=data_root),
         filter_cfg=dict(filter_empty_gt=True, min_size=32),
         pipeline=train_pipeline,
@@ -61,7 +61,7 @@ val_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file='split/val_42_fold_4.json',
+        ann_file='split/val_42_fold_1.json',
         data_prefix=dict(img=data_root),
         test_mode=True,
         pipeline=test_pipeline,
@@ -71,7 +71,7 @@ test_dataloader = val_dataloader
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root+'split/val_42_fold_4.json',
+    ann_file=data_root+'split/val_42_fold_1.json',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)
