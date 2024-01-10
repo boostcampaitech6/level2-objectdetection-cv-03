@@ -52,7 +52,7 @@ class SubmissionHook(Hook):
                 # 이미 xyxy로 되어있음
                 prediction_string += str(int(label.cpu())) + ' ' + str(float(score.cpu())) + ' ' + str(bbox[0]) + ' ' + str(bbox[1]) + ' ' + str(bbox[2]) + ' ' + str(bbox[3]) + ' '
             self.prediction_strings.append(prediction_string)
-            self.file_names.append(output.img_path[13:])
+            self.file_names.append(output.img_path[29:])
 
     def after_test(self, runner: Runner):
         """
