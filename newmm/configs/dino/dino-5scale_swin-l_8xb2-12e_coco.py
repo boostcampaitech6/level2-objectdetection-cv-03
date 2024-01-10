@@ -28,3 +28,5 @@ model = dict(
     neck=dict(in_channels=[192, 384, 768, 1536], num_outs=num_levels),
     encoder=dict(layer_cfg=dict(self_attn_cfg=dict(num_levels=num_levels))),
     decoder=dict(layer_cfg=dict(cross_attn_cfg=dict(num_levels=num_levels))))
+
+load_from = '/data/ephemeral/home/level2-objectdetection-cv-03/newmm/dino-5scale_swin-l_8xb2-12e_coco_20230228_072924-a654145f.pth'
