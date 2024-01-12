@@ -55,7 +55,7 @@ hexs = ("FF3838", "FF9D97", "FF701F", "FFB21D", "CFD231", "48F90A", "92CC17", "3
 def hex2rgb(h):
     return tuple(int(h[1 + i : 1 + i + 2], 16) for i in (0, 2, 4))
 
-def draw_bbox(file_path, prediction_str, conf_thr=0):
+def draw_bbox(file_path, prediction_str, conf_thr_s, conf_thr_e):
     palette = [hex2rgb(f"#{c}") for c in hexs]
     n_palette = len(palette)
 
@@ -69,7 +69,7 @@ def draw_bbox(file_path, prediction_str, conf_thr=0):
         c, score, xmin, ymin, xmax, ymax = map(float, pred_list[j:j + 6])
         c, xmin, ymin, xmax, ymax = map(int, [c, xmin, ymin, xmax, ymax])
 
-        if score < conf_thr:
+        if score < conf_thr_s or score > conf_thr_e:
             continue
         
         col = palette[int(c) % n_palette]
@@ -110,9 +110,10 @@ def main():
     # test set 경로
     img_path = '/data/ephemeral/home/dataset/test'
     # prediction csv 경로
-    csv_path = '/data/ephemeral/home/level2-objectdetection-cv-03/yolo/results/ensemble/dino_yolo_conf0.05_nms_w21.csv'
-    # conf_thr 이상 bbox만 시각화
-    conf_thr = 0
+    csv_path = '/data/ephemeral/home/level2-objectdetection-cv-03/yolo/results/ensemble/dino_yolo_conf0.05_nms.csv'
+    # conf_thr_s 이상 conf_thr_e 이하인 bbox만 시각화
+    conf_thr_s = 0.0
+    conf_thr_e = 1.0
 
     if not os.path.exists(img_path):
         st.error('Directory does not exist.')
@@ -140,21 +141,21 @@ def main():
         if enter:
             st.session_state.num = input_num
             file_name = file_name_list[st.session_state.num]
-            draw_bbox(os.path.join(img_path, file_name), df['PredictionString'][st.session_state.num], conf_thr)
+            draw_bbox(os.path.join(img_path, file_name), df['PredictionString'][st.session_state.num], conf_thr_s, conf_thr_e)
 
         if prev_button:
             if st.session_state.num > min_num:
                 st.session_state.num -= 1
 
             file_name = file_name_list[st.session_state.num]
-            draw_bbox(os.path.join(img_path, file_name), df['PredictionString'][st.session_state.num], conf_thr)
+            draw_bbox(os.path.join(img_path, file_name), df['PredictionString'][st.session_state.num], conf_thr_s, conf_thr_e)
 
         if next_button:
             if st.session_state.num < max_num:
                 st.session_state.num += 1
             
             file_name = file_name_list[st.session_state.num]
-            draw_bbox(os.path.join(img_path, file_name), df['PredictionString'][st.session_state.num], conf_thr)
+            draw_bbox(os.path.join(img_path, file_name), df['PredictionString'][st.session_state.num], conf_thr_s, conf_thr_e)
 
 if __name__ == '__main__':
     main()
