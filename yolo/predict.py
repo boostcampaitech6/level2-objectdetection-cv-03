@@ -5,7 +5,7 @@ import os
 
 def main(opt):
     model = YOLO(opt.weight)
-    results = model(opt.source, conf=opt.conf, iou=opt.iou, save=opt.save, augment=opt.augment)
+    results = model.predict(opt.source, conf=opt.conf, iou=opt.iou, save=opt.save, augment=opt.augment)
 
     df = pd.DataFrame(columns=['PredictionString', 'image_id'])
     prediction_arr = []
