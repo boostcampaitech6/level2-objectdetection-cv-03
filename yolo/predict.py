@@ -5,7 +5,7 @@ import os
 
 def main(opt):
     model = YOLO(opt.weight)
-    results = model(opt.source)
+    results = model(opt.source, conf=opt.conf, iou=opt.iou, save=opt.save, augment=opt.augment)
 
     df = pd.DataFrame(columns=['PredictionString', 'image_id'])
     prediction_arr = []
@@ -25,7 +25,9 @@ def main(opt):
         image_id = '/'.join(paths[-2:])
         prediction_str = ' '.join(prediction_arr)
 
-        df = df.append(pd.DataFrame({'PredictionString':[prediction_str], 'image_id':[image_id]}), ignore_index=True)
+        # 최신 버전 pandas에서는 append가 삭제됨
+        # df = df.append({'PredictionString':[prediction_str], 'image_id':[image_id]}, ignore_index=True)
+        df = pd.concat([df, pd.DataFrame({'PredictionString':[prediction_str], 'image_id':[image_id]})], ignore_index=True)
         prediction_arr = []
         
     save_dir = opt.save_dir
@@ -43,6 +45,10 @@ def parse_opt():
     parser.add_argument('--source', type=str, default='/data/ephemeral/home/dataset/test')
     parser.add_argument('--save-dir', type=str, default='/data/ephemeral/home/level2-objectdetection-cv-03/yolo/results')
     parser.add_argument('--name', type=str, required=True)
+    parser.add_argument('--conf', type=float, default=0.05)
+    parser.add_argument('--iou', type=float, default=0.5)
+    parser.add_argument('--save', type=bool, default=False)
+    parser.add_argument('--augment', type=bool, default=True)
 
     return parser.parse_args()
 
