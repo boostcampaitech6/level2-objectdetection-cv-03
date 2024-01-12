@@ -141,6 +141,7 @@ def main():
         if enter:
             st.session_state.num = input_num
             file_name = file_name_list[st.session_state.num]
+            st.write(st.session_state.num, file_name)
             draw_bbox(os.path.join(img_path, file_name), df['PredictionString'][st.session_state.num], conf_thr_s, conf_thr_e)
 
         if prev_button:
@@ -148,6 +149,7 @@ def main():
                 st.session_state.num -= 1
 
             file_name = file_name_list[st.session_state.num]
+            st.write(st.session_state.num, file_name)
             draw_bbox(os.path.join(img_path, file_name), df['PredictionString'][st.session_state.num], conf_thr_s, conf_thr_e)
 
         if next_button:
@@ -155,6 +157,7 @@ def main():
                 st.session_state.num += 1
             
             file_name = file_name_list[st.session_state.num]
+            st.write(st.session_state.num, file_name)
             draw_bbox(os.path.join(img_path, file_name), df['PredictionString'][st.session_state.num], conf_thr_s, conf_thr_e)
 
 if __name__ == '__main__':
