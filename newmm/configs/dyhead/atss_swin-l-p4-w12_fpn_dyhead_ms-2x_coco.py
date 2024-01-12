@@ -1,5 +1,5 @@
 _base_ = [
-    '../_base_/datasets/coco_detection.py',
+    '../_base_/datasets/coco_try.py',
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
 
@@ -89,6 +89,7 @@ model = dict(
         max_per_img=100))
 
 # dataset settings
+'''
 train_pipeline = [
     dict(type='LoadImageFromFile', backend_args={{_base_.backend_args}}),
     dict(type='LoadAnnotations', with_bbox=True),
@@ -117,14 +118,14 @@ train_dataloader = dict(
         dataset=dict(
             type={{_base_.dataset_type}},
             data_root={{_base_.data_root}},
-            ann_file='annotations/instances_train2017.json',
-            data_prefix=dict(img='train2017/'),
+            ann_file='split_train.json',
+            data_prefix={{_base_.data_root}},
             filter_cfg=dict(filter_empty_gt=True, min_size=32),
             pipeline=train_pipeline,
             backend_args={{_base_.backend_args}})))
 val_dataloader = dict(dataset=dict(pipeline=test_pipeline))
 test_dataloader = val_dataloader
-
+'''
 # optimizer
 optim_wrapper = dict(
     _delete_=True,
@@ -138,3 +139,5 @@ optim_wrapper = dict(
             'norm': dict(decay_mult=0.)
         }),
     clip_grad=None)
+
+load_from = '/data/ephemeral/home/level2-objectdetection-cv-03/newmm/atss_swin-l-p4-w12_fpn_dyhead_mstrain_2x_coco_20220509_100315-bc5b6516.pth'
