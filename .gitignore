@@ -3,3 +3,9 @@ yolov5/logs
 yolov5/wandb
 yolov5/runs
 yolov5/*.pt
+wandb/
+runs/
+datasets/
+results/
+*.pt
+__pycache__
