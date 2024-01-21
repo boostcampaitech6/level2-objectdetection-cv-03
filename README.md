@@ -20,10 +20,12 @@
 
 ### Framework
 - MMDetection v3
+- Ultralytics
 
 ### Cooperation tools
 - Slack, Notion
 - Github, Wandb
+- Supervisely
 
 
 <br>
@@ -33,13 +35,13 @@
 ### Members
 | 팀원 | 역할 |
 | -- | -- |
-| 전체 | - EDA, Data Cleansing<br>- Ensemble 실험 및 전략 수립 (NMS, WBF)<br>- TTA 실험 (Dino, ATSS) |
+| **전체** | - EDA, Data Cleansing<br>- Ensemble 실험 및 전략 수립 (NMS, WBF)<br>- TTA 실험 (Dino, ATSS) |
 | 강현서 | - MMDetection 라이브러리 실험 <br> - Cleansing Data 비교 실험 (Faster-RCNN) <br> - Learning Rate Scheduler 실험(Dino, ATSS) <br> 
-| 김정택 | - Cascade RCNN 모델링 (MMDetection)<br>- Cleansing Data 비교 실험 ( YololV8s )<br>- Data Augmentation 실험 (YoloV8s, CascadeRCNN)<br>- Cls Loss 실험 ( CascadeRCNN ) |
-| 박진영 | -  |
-| 선경은 | -  |
+| 김정택 | - Cascade RCNN 모델링 (MMDetection)<br>- Cleansing Data 비교 실험 ( YOLOv8s )<br>- Data Augmentation 실험 (YOLOV8s, CascadeRCNN)<br>- Cls Loss 실험 ( CascadeRCNN ) |
+| 박진영 | - Data cleansing 실험 (yolov8s, 이미지 내 작은 bbox 제거 후 성능 비교) <br> - data augmentation 실험 (faster rcnn, cascade, dino) |
+| 선경은 | - Validset 찾기 <br> - YOLOv5, v8 실험 <br> - ATSS 실험 <br> - 앙상블 구현 및 실험 |
 | 이선우라이언 | - |
-| 최현우 | -  |
+| 최현우 | - yolov5 모델 테스트 <br> - Detectron2 모델 테스트 <br> - Redis 학습 스케줄러 구현 <br> - lr 스케줄러 실험 |
 
 <br>
 
@@ -50,7 +52,7 @@
 | 분류 | 내용 |
 | :--: | -- |
 |Data|**Stratified Group K-fold** <br> - Class 비율을 유지하며, 중복되지 않는 5개의 fold로 나눔 <br> - Test set과 유사한 Valid set을 찾기 위해 다양한 SEED 시도 <br> - 팀원 모두 같은 SEED를 사용하여 실험 비교가 유의미하도록 하였음 <br> <br>  **Augmentation** <br> - 객체의 특성을 최대한 보존하는 증강 기법 적용 <br> - Rotate, Flip, Resize <br> <br> **Label Correction** <br> - 비슷한 객체를 서로 다르게 라벨링하거나 오라벨링 하는 케이스에 대해 correction 진행<br> - 객관성을 유지하기 위해 팀원들 간 합의를 통해 매뉴얼을 정함
-|Model| - 최대한 일정 점수 이상(0.6mAP)의 모델을 다양하게 만들어서 앙상블에 이용하고자 함<br> - MMDetection v3 라이브러리에서 단일 모델 중 SOTA 랭킹이 높았던 모델 우선적 사용<br> - 각 모델에 대해 적합한 lr scheduler를 실험적으로 찾아냄<br> - 사용한 모델 상세는 아래의 Result 섹션 참고바람<br>
+|Model| - 최대한 일정 점수 이상(0.6mAP)의 모델을 다양하게 만들어서 앙상블에 이용하고자 함<br> - MMDetection v3 라이브러리에서 단일 모델 중 SOTA 랭킹이 높았던 모델 우선적 사용<br> - 각 모델에 대해 적합한 lr scheduler를 실험적으로 찾아냄<br> - 사용한 모델 상세는 하기 Result 섹션 참고바람<br>
 |Other Methods|**Ensemble** <br> 아래의 항목들을 고려하며 앙상블 실험을 진행함<br>- 앙상블 방법 (wbf, nms)<br> - IOU <br>- Skip box threshold<br>- 각 모델에 준 Weight<br>- Calibration 여부<br>- 1-Stage Model / 2-Stage Model 
 
 <br>
@@ -69,7 +71,22 @@
 
 <br>
 
+### Used Hyperparameter
 
+| Method | Schuduler type | Epoch | Milestones | Gamma |
+| :--: | :--: | :--: | :--: | :--: |
+|**YOLOv8l**| LambdaLR | 50 | - |
+|**Cascade RCNN**| MultiStepLR | 14 | \[2, 8, 11\] | 0.5 |
+|**Dino**| MultiStepLR | 14 | \[11\] | 0.1 |
+|**ATSS**| MultiStepLR | 12 | \[2, 5, 8, 11\] | 0.5 |
+
+<br>
+
+### Ensemble
+| Ensemble | Calibration | mAP50(LB) |
+| :--: | :--: | :--: |
+|Dinotta2_Dino2_Atsstta2.5_Atss2.5_Yolo1_Cascade1_wbf0.63_skip0.05| O |0.7396|
+|Dinotta2_Dino2_Atsstta2.5_Atss2.5_Yolo1_wbf0.63_skip0.05| O |	0.7397|
 
 ### Final Score
 
