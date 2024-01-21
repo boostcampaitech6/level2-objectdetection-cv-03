@@ -74,4 +74,4 @@
 ### Final Score
 
 🥇 **Private LB : 1st**
-<img  src='https://velog.velcdn.com/images/jelly9999/post/7fdcfafa-a4f4-49f5-89e0-663901d45597/image.png'  height=200  width=900px></img>
+<img  src='https://velog.velcdn.com/images/jelly9999/post/7fdcfafa-a4f4-49f5-89e0-663901d45597/image.png'  ></img>
