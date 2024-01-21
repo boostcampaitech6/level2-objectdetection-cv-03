@@ -1,18 +1,22 @@
 
 
 ## **Trash Object Detection for Recycling**
-### 프로젝트 목표
- - 환경 부담을 줄이기 위한 방법 중 하나는 쓰레기를 효과적으로 분리하는 것입니다. 이 프로젝트는 사진에서 쓰레기를 감지하는 모델을 만들어, **정확한 쓰레기 분리**를 돕는 것을 목표로 합니다.
+## 프로젝트 목표
+환경 부담을 줄이기 위한 방법 중 하나는 쓰레기를 효과적으로 분리하는 것입니다. 따라서 본 프로젝트는 사진에서 쓰레기를 감지하는 모델을 만들어, **정확한 쓰레기 분리**를 돕는 것을 목표로 합니다.
 
 
-### 프로젝트 상세
-Dataset
-    - Format: COCO format
-    - Total image : 9,754장(Train set 4,883장)
-    - Class: 10개 (General trash, Paper, Paper pack, Metal, Class, Plastic, Styrofoam, Plastic bag, Battery, Clothing)
-    - Image Resolution: 1024\*1024
-- Evaluation metric: mAP50
-- Computing Environment: GPU v100
+## 프로젝트 상세
+### Dataset
+- Format: COCO format
+- Total image : 9,754장(Train set 4,883장)
+- Class: 10개 (General trash, Paper, Paper pack, Metal, Class, Plastic, Styrofoam, Plastic bag, Battery, Clothing)
+- Image Resolution: 1024\*1024
+
+### Evaluation metric
+- mAP50
+
+### Computing Environment
+- GPU v100
 
 ### Framework
 - MMDetection v3
