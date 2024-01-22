@@ -40,7 +40,7 @@
 | 김정택 | - Cascade RCNN 모델링 (MMDetection)<br>- Cleansing Data 비교 실험 ( YOLOv8s )<br>- Data Augmentation 실험 (YOLOV8s, CascadeRCNN)<br>- Cls Loss 실험 ( CascadeRCNN ) |
 | 박진영 | - Data cleansing 실험 (yolov8s, 이미지 내 작은 bbox 제거 후 성능 비교) <br> - data augmentation 실험 (faster rcnn, cascade, dino) |
 | 선경은 | - Validset 찾기 <br> - YOLOv5, v8 실험 <br> - ATSS 실험 <br> - 앙상블 구현 및 실험 |
-| 이선우라이언 | - |
+| 이선우라이언 | - MMDetection 라이브러리 실험 <br> -YOLOv8 Augmentation 실험 <br> -Dino 모델 관련 실험|
 | 최현우 | - yolov5 모델 테스트 <br> - Detectron2 모델 테스트 <br> - Redis 학습 스케줄러 구현 <br> - lr 스케줄러 실험 |
 
 <br>
