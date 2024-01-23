@@ -103,6 +103,7 @@ val_evaluator = dict(
     ann_file=data_root+'split/val_42_fold_1.json',
     metric='bbox',
     format_only=False,
+    classwise=True,
     backend_args=backend_args)
 
 test_evaluator = dict(
