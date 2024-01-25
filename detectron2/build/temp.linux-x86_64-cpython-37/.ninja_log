@@ -1,0 +1,23 @@
+# ninja log v5
+4	1234	1666315626127065775	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/cuda_version.o	5c1b9d9e49daf01d
+0	8017	1666315632907085976	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/box_iou_rotated/box_iou_rotated_cpu.o	df9d017e91709d4a
+1	9207	1666315634095089459	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/cocoeval/cocoeval.o	efe717c9f35bce4f
+16	9360	1666315634251089915	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/nms_rotated/nms_rotated_cpu.o	c7daf8b6f1d1ca43
+0	11965	1666315636855097487	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/ROIAlignRotated/ROIAlignRotated_cpu.o	2a878d6d650f9a2
+0	13910	1666315638799103088	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/ROIAlignRotated/ROIAlignRotated_cuda.o	8b2ff1ae0f8a4b9f
+3	14329	1666315639215104280	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/box_iou_rotated/box_iou_rotated_cuda.o	acbbea7661d2d122
+16	14734	1666315639619105436	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/nms_rotated/nms_rotated_cuda.o	c048382f5972fa50
+1	14841	1666315639727105745	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/deformable/deform_conv_cuda_kernel.o	813ec90be8a8dd15
+10	18450	1666315643335115983	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/deformable/deform_conv_cuda.o	dae4d2eb80feef3d
+1234	29959	1666315654843147632	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/vision.o	2c104a83535e808f
+9	1208	1666686069856674357	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/cuda_version.o	3f0ef096d8f60c08
+2	7466	1666686076112559501	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/box_iou_rotated/box_iou_rotated_cpu.o	b5979b28c9774e25
+10	8581	1666686077228539119	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/nms_rotated/nms_rotated_cpu.o	557fcc8c3dea3fe0
+3	9221	1666686077864527517	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/cocoeval/cocoeval.o	a63328a6f039014
+1	11478	1666686080124486374	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/ROIAlignRotated/ROIAlignRotated_cpu.o	4a50da9d579a21ec
+1	13983	1666686082624441015	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/ROIAlignRotated/ROIAlignRotated_cuda.o	ac0508aceda8bc65
+3	14094	1666686082736438986	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/box_iou_rotated/box_iou_rotated_cuda.o	9dc42881ba9b3178
+2	14176	1666686082820437464	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/deformable/deform_conv_cuda_kernel.o	1e3881810d44896c
+11	14575	1666686083216430296	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/nms_rotated/nms_rotated_cuda.o	b756099ae01b79aa
+9	18519	1666686087164359043	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/deformable/deform_conv_cuda.o	63801ca73b432ae8
+1208	29599	1666686098236161298	/home/baseline/detectron2/build/temp.linux-x86_64-cpython-37/home/baseline/detectron2/detectron2/layers/csrc/vision.o	4894e129e5b5f65a
